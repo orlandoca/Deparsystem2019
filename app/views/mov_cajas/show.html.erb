@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Caja:</strong>
+  <%= @mov_caja.caja_id %>
+</p>
+
+<p>
+  <strong>Concepto:</strong>
+  <%= @mov_caja.concepto %>
+</p>
+
+<p>
+  <strong>Ingreso:</strong>
+  <%= @mov_caja.ingreso %>
+</p>
+
+<p>
+  <strong>Egreso:</strong>
+  <%= @mov_caja.egreso %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @mov_caja.saldo %>
+</p>
+
+<%= link_to 'Edit', edit_mov_caja_path(@mov_caja) %> |
+<%= link_to 'Back', mov_cajas_path %>

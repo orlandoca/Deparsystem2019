@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caja_id: 1
+  concepto: MyString
+  ingreso: 1
+  egreso: 1
+  saldo: 1
+
+two:
+  caja_id: 1
+  concepto: MyString
+  ingreso: 1
+  egreso: 1
+  saldo: 1

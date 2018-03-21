@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contrato_id: MyString
+  cuota: 1
+  vencimiento: 2016-10-27
+  monto: 1
+  estado: false
+
+two:
+  contrato_id: MyString
+  cuota: 1
+  vencimiento: 2016-10-27
+  monto: 1
+  estado: false

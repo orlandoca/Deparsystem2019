@@ -1,0 +1,51 @@
+
+<center>
+<%= form_for(@caja) do |f| %>
+  <% if @caja.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@caja.errors.count, "error") %> prohibited this caja from being saved:</h2>
+
+      <ul>
+      <% @caja.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<h1>este es el form de caja</h1>
+  <div class="hidden">
+    <%= f.label :usuario_id %><br>
+    <%= f.number_field :usuario_id %>
+  </div>
+  <div class="hidden">
+    <%= f.label :fecha_cierre %><br>
+    <%= f.datetime_select :fecha_cierre %>
+  </div>
+  <div class="field">
+    <%= f.label :apertura %><br>
+    <%= f.number_field :apertura %>
+  </div>
+  <div class="hidden">
+    <%= f.label :cierre %><br>
+    <%= f.number_field :cierre %>
+  </div>
+  <div class="hidden">
+    <%= f.label :entrada %><br>
+    <%= f.number_field :entrada %>
+  </div>
+  <div class="hidden">
+    <%= f.label :salida %><br>
+    <%= f.number_field :salida %>
+  </div>
+  <div class="hidden">
+    <%= f.label :estado %><br>
+    <%= f.check_box :estado %>
+  </div>
+    <br>
+    <div class="text-center">
+      <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
+          CREAR CAJA
+      <% end %>
+    </div>
+<% end %>
+  </center>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="panel-title">Lista de Pagos</h1>
+        </div>
+        <div class="panel-body">
+            <table id="tabla" class="table table-bordered table-hover table-striper table-condensed" width="100%">
+                <thead>
+                    <tr>
+                        <th>Contrato</th>
+                        <th>Inquilino</th>
+                        <th>Fecha pago</th>
+                        <th>Monto</th>
+                        <th>Estado</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @pagos.each do |pago| %>
+                    <tr>
+                        <td><%= pago.contrato_id %></td>
+                        <td><%= pago.inquilino_id %></td>
+                        <td><%= pago.fecha_pago %></td>
+                        <td><%= number_with_precision(pago.monto, precision: 0, separator: ',', delimiter: '.') %></td>
+                        <td class="text-uppercase"><%= pago.estado %></td>
+                        <td><%= link_to glyph(:eye_open)+'', pago %></td>
+                        <td><%= link_to glyph(:pencil)+'', edit_pago_path(pago) %></td>
+                        <td><%= link_to glyph(:remove)+'', pago, method: :delete, data: { confirm: 'ESTAS SEGURO?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br>
+<%= link_to 'Nuevo Pago', new_pago_path ,class: 'btn btn-success btn-sm pull-left' %>

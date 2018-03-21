@@ -1,0 +1,40 @@
+<div class="panel panel-primary text-uppercase">
+    <div class="panel-body">
+        <%= form_for(@departamento) do |f| %>
+        <% if @departamento.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@departamento.errors.count, "error") %> prohibited this departamento from being saved:</h2>
+            <ul>
+                <% @departamento.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <div class="field">
+            <%= f.label :edificio_id %><br>
+            <%= f.collection_select(:edificio_id, Edificio.all, :id, :nombre_edificio, { prompt: true },{class: 'form-control input-sm text-uppercase'}) %>        </div>
+        </div>
+        <div class="field">
+            <%= f.label :nombre_departamento %><br>
+            <%= f.text_field :nombre_departamento  , class: "form-control input-sm  "%>
+        </div>
+        <div class="field">
+            <%= f.label :precio %><br>
+            <%= f.number_field :precio , class: "form-control input-sm " %>
+        </div>
+        <div class="field">
+            <%= f.label :descripcion %><br>
+            <%= f.text_field :descripcion , class: "form-control input-sm text-uppercase " %>
+        </div>
+        <div class="field">
+            <%= f.label :estado %><br>
+            <%= f.check_box :estado , class: " input-sm text-uppercase "%>
+        </div>
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+
+        <% end %>
+    </div>
+</div>

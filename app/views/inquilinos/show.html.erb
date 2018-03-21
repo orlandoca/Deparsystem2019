@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cedula:</strong>
+  <%= @inquilino.cedula %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @inquilino.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @inquilino.apellido %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @inquilino.telefono %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @inquilino.email %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @inquilino.estado %>
+</p>
+
+
+
+<%= link_to glyph(:pencil) + 'Editar', edit_inquilino_path(@inquilino) , class: "btn btn-warning btn-xs" %> |
+
+<%= link_to glyph(:arrow_left) + ' ATRAS', inquilinos_path , class: "btn btn-default btn-xs"%>

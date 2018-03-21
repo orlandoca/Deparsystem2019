@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Detalle Recibos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recibo</th>
+      <th>Cuota</th>
+      <th>Descripcion</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detalle_recibos.each do |detalle_recibo| %>
+      <tr>
+        <td><%= detalle_recibo.recibo_id %></td>
+        <td><%= detalle_recibo.cuota %></td>
+        <td><%= detalle_recibo.descripcion %></td>
+        <td><%= detalle_recibo.total %></td>
+        <td><%= link_to 'Show', detalle_recibo %></td>
+        <td><%= link_to 'Edit', edit_detalle_recibo_path(detalle_recibo) %></td>
+        <td><%= link_to 'Destroy', detalle_recibo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detalle recibo', new_detalle_recibo_path %>

@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="panel-title">LISTA DE  CAJAS </h1>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table id="tabla" class="table table-bordered table-hover table-striper table-condensed" width="100%">
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Fecha cierre</th>
+      <th>Monto Apertura</th>
+      <th>Monto Cierre</th>
+      <th>Monto Entrada</th>
+      <th>Monto Salida</th>
+      <th>Estado</th>
+      <th CLASS="text-center" COLSPAN="3">ACCIONES</th>
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cajas.each do |caja| %>
+      <tr>
+        <td><%= caja.usuario_id %></td>
+        <td><%= caja.fecha_cierre %></td>
+        <td><%= number_with_precision(caja.apertura, precision: 0, separator: ',', delimiter: '.') %></td>
+        <td><%= number_with_precision(caja.cierre, precision: 0, separator: ',', delimiter: '.') %></td>
+        <td><%= number_with_precision(caja.entrada, precision: 0, separator: ',', delimiter: '.') %></td>
+        <td><%= number_with_precision(caja.salida, precision: 0, separator: ',', delimiter: '.') %></td>
+        <% if caja.estado %>
+            <td class="text-center"><label class="label label-default">CERRADO</label></td>
+        <% else %>
+            <td class="text-center"><label class="label label-success">ABIERTO</label></td>
+        <% end %>
+        <td><%= link_to 'VER', caja  , class: "btn btn-info btn-xs"%></td>
+
+        <% if caja.estado %>
+        <td></td>
+        <% else %>
+            <td><%= link_to 'CERRAR CAJA', edit_caja_path(caja), class: "btn btn-warning btn-xs" %></td>
+        <% end %>
+        <td><%= link_to 'ELIMINAR CAJA', caja,class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'Nueva Caja', new_caja_path  ,class: 'btn btn-success btn-sm pull-left'%>

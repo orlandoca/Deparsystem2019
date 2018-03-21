@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="panel-title">Lista de los Movimientos de Caja</h1>
+    </div>
+    <div class="panel-body">
+      <table id="tabl" class="table table-striped table-hover" width="100%">
+  <thead>
+    <tr>
+      <th>Caja</th>
+      <th>Concepto</th>
+      <th>Ingreso</th>
+      <th>Egreso</th>
+      <th>Saldo</th>
+      <th>Ver</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mov_cajas.each do |mov_caja| %>
+      <tr>
+        <td><%= mov_caja.caja_id %></td>
+        <td><%= mov_caja.concepto %></td>
+        <td><%= number_with_precision(mov_caja.ingreso, precision: 0, separator: ',', delimiter: '.') %></td>
+        <td><%= number_with_precision(mov_caja.egreso, precision: 0, separator: ',', delimiter: '.') %></td>
+        <td><%= number_with_precision(mov_caja.saldo, precision: 0, separator: ',', delimiter: '.') %></td>
+        <td><%= link_to 'VER', mov_caja,  class: "btn btn-info btn-xs" %></td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+
+<%= link_to 'New Mov caja', new_mov_caja_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contrato:</strong>
+  <%= @movimiento.contrato_id %>
+</p>
+
+<p>
+  <strong>Cuota:</strong>
+  <%= @movimiento.cuota %>
+</p>
+
+<p>
+  <strong>Vencimiento:</strong>
+  <%= @movimiento.vencimiento %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @movimiento.monto %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @movimiento.estado %>
+</p>
+
+<%= link_to 'Edit', edit_movimiento_path(@movimiento) %> |
+<%= link_to 'Back', movimientos_path %>

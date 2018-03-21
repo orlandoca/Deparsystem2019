@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-xs-12">
+  <div class="invoice-title">
+    <h2>CAJA</h2>
+    <h3 class="pull-right"> NUMERO DE CAJA: 00<%= @caja.id %></h3>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-xs-12">
+      <address>
+        <strong>USUARIO:</strong><br>
+        <%= @caja.usuario.email %>
+      </address>
+      <address>
+        <strong>ESTADO:</strong><br>
+        <% if @caja.estado  %>
+            <label class="text-danger">  CERRADO </label>
+          <% else  %>
+            <label class="text-success"> ABIERTO </label>
+        <% end  %>
+      </address>
+    </div>
+    <div class="col-lg-3 col-md-3 col-xs-12">
+      <address>
+        <strong>FECHA DE APERTURA:</strong><br>
+         <%= @caja.created_at.strftime("%d/%m/%Y") %>
+      </address>
+      <address>
+        <strong> FECHA DE CIERRE</strong><br>
+         <%= @caja.fecha_cierre %>
+      </address>
+    </div>
+    <div class="col-lg-3 col-md-3 col-xs-12">
+      <address>
+        <strong>MONTO DE APERTURA:</strong><br>
+        <%= number_with_precision( @caja.apertura, precision: 0, separator: ',', delimiter: '.')%><br>
+
+      </address>
+      <address>
+        <strong>MONTO DE CIERRE:</strong><br>
+        <%= number_with_precision( @caja.cierre, precision: 0, separator: ',', delimiter: '.')%><br>
+      </address>
+    </div>
+    <div class="col-lg-3 col-md-3 col-xs-12">
+      <address>
+        <strong>MONTO DE ENTRADA:</strong><br>
+        <%= number_with_precision( @caja.entrada, precision: 0, separator: ',', delimiter: '.')%><br>
+      </address>
+      <address>
+        <strong>MONTO DE SALIDA:</strong><br>
+        <%= number_with_precision( @caja.salida, precision: 0, separator: ',', delimiter: '.')%><br>
+
+      </address>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>DETALLES DE LA CAJA</strong></h3>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover" width="100%">
+          <thead>
+          <tr>
+            <th>Caja</th>
+            <th>Concepto</th>
+            <th>Ingreso</th>
+            <th>Egreso</th>
+            <th>Saldo</th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+
+            <tbody>
+                <%  @caja.mov_cajas.each do |mov_caja| %>
+                <tr>
+                  <td><%= mov_caja.caja_id %></td>
+                  <td><%= mov_caja.concepto %></td>
+                  <td> <%= number_with_precision( mov_caja.ingreso, precision: 0, separator: ',', delimiter: '.')%></td>
+                  <td> <%= number_with_precision( mov_caja.egreso, precision: 0, separator: ',', delimiter: '.')%></td>
+                  <td> <%= number_with_precision( mov_caja.saldo, precision: 0, separator: ',', delimiter: '.')%></td>
+                  <td><%= link_to 'VER', mov_caja , class: "btn btn-info btn-xs" %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+</div>
+      </div>
+    </div>
+  </div>
+
+      <%= link_to glyph(:pencil) +'EDITAR', edit_caja_path(@caja) ,class: "btn btn-warning btn-xs" %> |
+
+      <%= link_to glyph(:arrow_left) + ' ATRAS', caja_path , class: "btn btn-default btn-xs"%>

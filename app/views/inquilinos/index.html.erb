@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="panel-title">Lista de Inquilinos</h1>
+    </div>
+    <div class="panel-body">
+      <table id="tabla" class="table table-striped table-hover" width="100%">
+        <thead>
+        <tr>
+          <th>Cedula</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Telefono</th>
+          <th>Email</th>
+          <th>Estado</th>
+          <th>Ver</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @inquilinos.each do |inquilino| %>
+            <tr>
+              <td><%= number_with_precision(inquilino.cedula, precision: 0, separator: ',', delimiter: '.') %></td>
+              <td><%= inquilino.nombre %></td>
+              <td><%= inquilino.apellido %></td>
+              <td><%= number_with_precision(inquilino.telefono, precision: 0, separator: ',', delimiter: '.') %></td>
+              <td><%= inquilino.email %></td>
+              <% if inquilino.estado %>
+                  <td class="text-center"><label class="label label-success">OCUPADO</label></td>
+              <% else %>
+                  <td class="text-center"><label class="label label-warning">DISPONIBLE</label></td>
+              <% end %>
+              <td><%= link_to 'VER', inquilino , class: "btn btn-info btn-xs" %></td>
+              <td><%= link_to 'EDITAR', edit_inquilino_path(inquilino), class: "btn btn-warning btn-xs" %></td>
+              <td><%= link_to 'ELIMINAR', inquilino, method: :delete, data: { confirm: 'ESTAS SEGURO?' } , class: "btn btn-danger btn-xs" %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br>
+<%= link_to 'Nuevo Inquilino', new_inquilino_path ,class: 'btn btn-success btn-sm pull-left' %>

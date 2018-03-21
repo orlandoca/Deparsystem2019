@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contrato_id: 1
+  inquilino_id: 1
+  fecha_pago: 2016-10-12
+  monto: 1
+  estado: MyString
+
+two:
+  contrato_id: 1
+  inquilino_id: 1
+  fecha_pago: 2016-10-12
+  monto: 1
+  estado: MyString

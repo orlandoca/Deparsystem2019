@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario_id: 1
+  fecha_cierre: 2017-06-13 20:38:32
+  apertura: 1
+  cierre: 1
+  entrada: 1
+  salida: 1
+  estado: false
+
+two:
+  usuario_id: 1
+  fecha_cierre: 2017-06-13 20:38:32
+  apertura: 1
+  cierre: 1
+  entrada: 1
+  salida: 1
+  estado: false

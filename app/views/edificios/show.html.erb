@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-xs-12">
+  <div class="invoice-title">
+    <h2>EDIFICIO</h2>
+  </div>
+  <HR>
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-xs-12">
+    <address>
+        <strong>Nombre Edificio:</strong>
+        <%= @edificio.nombre_edificio %>
+    </address>
+    </div>
+      <div class="col-lg-4 col-md-3 col-xs-12">
+        <address>
+         <strong>Nombre Propietario:</strong>
+        <%= @edificio.nombre_propietario %>
+        </address>
+    </div>
+  <div class="col-lg-3 col-md-3 col-xs-12">
+    <address>
+      <strong>Direccion:</strong>
+        <%= @edificio.direccion %>
+    </address>
+  </div>
+  </div>
+  </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>DATOS DEL DEPARTAMENTO </strong></h3>
+      </div>
+<div class="panel-body">
+  <div class="table-responsive">
+  <table id="tabla" class="table table-striped table-hover" width="100%">
+    <thead>
+    <tr>
+      <th>Nombre departamento</th>
+      <th>Precio</th>
+      <th>Descripcion</th>
+      <th>Estado</th>
+      <th>Ver</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @edificio.departamentos.each do |departamento| %>
+        <tr>
+          <td><%= departamento.nombre_departamento %></td>
+          <td><%= number_with_precision(departamento.precio, precision: 0, separator: ',', delimiter: '.') %></td>
+          <td><%= departamento.descripcion %></td>
+          <% if departamento.estado %>
+              <td class="text-center"><label class="label label-success">OCUPADO</label></td>
+          <% else %>
+              <td class="text-center"><label class="label label-warning">DISPONIBLE</label></td>
+          <% end %>
+          <td><%= link_to 'VER', departamento , class: "btn btn-info btn-xs" %></td>
+          <td><%= link_to 'EDITAR', edit_departamento_path(departamento), class: "btn btn-warning btn-xs" %></td>
+          <td><%= link_to 'ELIMINAR', departamento, method: :delete, data: { confirm: 'ESTAS SEGURO?' } , class: "btn btn-danger btn-xs" %></td>
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <%= link_to glyph(:pencil) +'EDITAR', edit_edificio_path(@edificio) ,class: "btn btn-warning btn-xs" %> |
+
+<%= link_to glyph(:arrow_left) + ' ATRAS', edificio_path , class: "btn btn-default btn-xs"%>

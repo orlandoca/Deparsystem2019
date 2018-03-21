@@ -1,0 +1,87 @@
+
+<%= link_to glyph(:pencil) +'EDITAR', edit_caja_path(@contrato) ,class: "btn btn-warning btn-xs" %> |
+
+<%= link_to glyph(:arrow_left) + ' ATRAS', contrato_path , class: "btn btn-default btn-xs"%>
+
+<div class="col-xs-12">
+    <div class="invoice-title">
+        <h2>CONTRATO</h2>
+        <h3 class="pull-right"> NUMERO CONTRATO: 00<%= @contrato.id %></h3>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-12">
+            <address>
+                <strong>INQUILINO:</strong>
+                <%= @contrato.inquilino.nombre %>
+                <%= @contrato.inquilino.apellido %> <br>
+            </address>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-12 ">
+            <address>
+                <strong>DEPARTAMENTO:</strong>
+                <%= @contrato.departamento.nombre_departamento %>
+            </address>
+            <address>
+                <strong> NOMBRE DEL EDIFICIO</strong>
+                 <%= @contrato.departamento.edificio.nombre_edificio %>
+            </address>
+        </div>
+       <div class="col-lg-4 col-md-4 col-xs-12">
+            <address>
+                <strong>FECHA CONTRATO:</strong>
+                <%= @contrato.fecha_contrato.strftime("%d/%m/%Y") %><br><br>
+            </address>
+            <address>
+                <strong>FIN CONTRATO:</strong>
+                <%= @contrato.fin_contrato.strftime("%d/%m/%Y") %><br><br>
+            </address>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><strong>DETALLES DEL CONTRATO</strong></h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+              <%= form_tag pagar_movimientos_path, method: :put  do %>
+                <table class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td class="text-center"><strong>CUOTA</strong></td>
+                            <td class="text-center"><strong>MONTO</strong></td>
+                            <td class="text-center"><strong>VENCIMIENTO</strong></td>
+                            <td class="text-center"><strong>ESTADO</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <%  @contrato.movimientos.each do |movimiento| %>
+                        <tr>
+                            <td><%= check_box_tag "movimientos_id[]", movimiento.id %></td>
+                            <td class="text-center"><%= movimiento.cuota %></td>
+                            <td class="text-center"><%= number_with_precision(movimiento.monto, precision: 0, separator: ',', delimiter: '.') %></td>
+                            <td class="text-center"><%= movimiento.vencimiento.strftime("%d/%m/%Y") %></td>
+                            <% if movimiento.estado %>
+                              <td class="text-center"><label class="label label-success">Pagado</label></td>
+                            <% else %>
+                              <td class="text-center"><label class="label label-warning">Pendiente</label></td>
+                            <% end %>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                  <div class="text-left">
+                    <%= button_tag(type: 'submit_tag', class: "btn btn-primary btn-sm") do %>
+                        PAGAR CUOTAS SELECCIONADAS
+                    <% end %>
+                  </div>
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div>

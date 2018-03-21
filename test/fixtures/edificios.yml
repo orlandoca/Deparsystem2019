@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_edificio: MyString
+  nombre_propietario: MyString
+  direccion: MyString
+
+two:
+  nombre_edificio: MyString
+  nombre_propietario: MyString
+  direccion: MyString

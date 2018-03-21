@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inquilino_id: 1
+  departamento_id: 1
+  fecha_contrato: 2016-10-06
+  inicio_contrato: 2016-10-06
+  fin_contrato: 2016-10-06
+  vencimiento: 2016-10-06
+
+two:
+  inquilino_id: 1
+  departamento_id: 1
+  fecha_contrato: 2016-10-06
+  inicio_contrato: 2016-10-06
+  fin_contrato: 2016-10-06
+  vencimiento: 2016-10-06

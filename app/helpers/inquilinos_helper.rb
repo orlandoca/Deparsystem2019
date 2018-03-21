@@ -1,0 +1,2 @@
+module InquilinosHelper
+end

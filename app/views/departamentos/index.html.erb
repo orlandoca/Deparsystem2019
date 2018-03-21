@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="panel-title">Lista de Departamentos</h1>
+        </div>
+        <div class="panel-body">
+            <table id="tabla" class="table table-striped table-hover" width="100%">
+                <thead>
+                    <tr>
+                        <th>Edificio</th>
+                        <th>Nombre departamento</th>
+                        <th>Precio</th>
+                        <th>Descripcion</th>
+                        <th>Estado</th>
+                        <th>VER</th>
+                        <th>EDITAR</th>
+                        <th>ELIMINAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @departamentos.each do |departamento| %>
+                    <tr>
+                        <td><%= departamento.edificio_id %></td>
+                        <td class="text-uppercase"><%= departamento.nombre_departamento %></td>
+                        <td><%= number_with_precision(departamento.precio, precision: 0, separator: ',', delimiter: '.') %></td>
+                        <td class="text-uppercase"><%= departamento.descripcion %></td>
+                         <td class="text-uppercase"><%= departamento.estado %></td>
+                        <td><%= link_to glyph(:eye_open)+'', departamento %></td>
+                        <td><%= link_to glyph(:pencil)+'', edit_departamento_path(departamento) %></td>
+                        <td><%= link_to glyph(:remove)+'', departamento, method: :delete, data: { confirm: 'ESTAS SEGURO?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<%= link_to 'Nuevo Departamento', new_departamento_path ,class: 'btn btn-success btn-sm pull-left' %>

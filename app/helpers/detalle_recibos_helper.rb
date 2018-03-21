@@ -1,0 +1,2 @@
+module DetalleRecibosHelper
+end

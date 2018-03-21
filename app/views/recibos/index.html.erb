@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="panel-title">Lista de Recibos</h1>
+    </div>
+    <div class="panel-body">
+      <table id="" class="table table-striped table-hover" width="100%">
+        <thead>
+        <tr>
+          <th>Contrato</th>
+          <th>Fecha</th>
+          <th>Ver</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @recibos.each do |recibo| %>
+            <tr>
+              <td><%= recibo.contrato_id %></td>
+              <td><%= recibo.created_at.strftime("%d/%m/%Y") %></td>
+              <td><%= link_to 'VER', recibo , class: "btn btn-info btn-xs" %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br>
+<%= link_to 'Nuevo Recibo', new_recibo_path ,class: 'btn btn-success btn-sm pull-left'%>

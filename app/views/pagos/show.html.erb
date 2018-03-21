@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contrato:</strong>
+  <%= @pago.contrato_id %>
+</p>
+
+<p>
+  <strong>Inquilino:</strong>
+  <%= @pago.inquilino_id %>
+</p>
+
+<p>
+  <strong>Fecha pago:</strong>
+  <%= @pago.fecha_pago %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @pago.monto %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @pago.estado %>
+</p>
+
+<%= link_to glyph(:pencil) + 'Editar', edit_pago_path(@pago) %> |
+<%= link_to 'Back', pagos_path %>

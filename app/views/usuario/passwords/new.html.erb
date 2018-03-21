@@ -1,0 +1,20 @@
+
+<div class="field col-lg-6 col-lg-offset-3">
+<center><h2>Olvido su contraseña?</h2></center>
+</div>
+
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+<br>
+    <br>
+  <div class="field col-lg-6 col-lg-offset-3">
+    <%= f.email_field :email, autofocus: true , class: "btn btn-link  btn-block btn-xs"%>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit "Enviarme instrucciones" , class: "btn btn-link  btn-block btn-xs" %>
+  </div>
+<% end %>
+<br>
+<%= render "usuario/shared/links" %>

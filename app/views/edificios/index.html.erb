@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+   <div class="panel panel-primary">
+      <div class="panel-heading">
+         <h1 class="panel-title">Lista de Edificios </h1>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+         <table id="tabla" class="table table-bordered table-hover table-striper table-condensed" width="100%">
+            <thead>
+              <tr>
+                  <th>Nombre del Edificio</th>
+                  <th>Nombre Propietario</th>
+                  <th>Dirección</th>
+                  <th>Ver</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+               </tr>
+            </thead>
+            <tbody>
+               <% @edificios.each do |edificio| %>
+               <tr>
+                  <td><%= edificio.nombre_edificio %></td>
+                  <td><%= edificio.nombre_propietario %></td>
+                  <td><%= edificio.direccion %></td>
+                 <td><%= link_to 'VER', edificio , class: "btn btn-info btn-xs" %></td>
+                 <td><%= link_to 'EDITAR', edit_edificio_path(edificio), class: "btn btn-warning btn-xs" %></td>
+                 <td><%= link_to 'ELIMINAR', edificio, method: :delete, data: { confirm: 'ESTAS SEGURO?' } , class: "btn btn-danger btn-xs" %></td>
+
+               </tr>
+               <% end %>
+            </tbody>
+         </table>
+       </div>
+      </div>
+   </div>
+</div>
+<br>
+<%= link_to 'Nuevo Edificio', new_edificio_path ,class: 'btn btn-success btn-sm pull-left' %>

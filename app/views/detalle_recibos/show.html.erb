@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recibo:</strong>
+  <%= @detalle_recibo.recibo_id %>
+</p>
+
+<p>
+  <strong>Cuota:</strong>
+  <%= @detalle_recibo.cuota %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @detalle_recibo.descripcion %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @detalle_recibo.total %>
+</p>
+
+<%= link_to 'Edit', edit_detalle_recibo_path(@detalle_recibo) %> |
+<%= link_to 'Back', detalle_recibos_path %>

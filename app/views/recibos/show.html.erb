@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= link_to glyph(:arrow_left) + ' ATRAS', recibos_path , class: "btn btn-default btn-xs"%>
+
+<br>
+
+
+  <div class="row">
+    <div class="well col-xs-12 col-sm-12 col-md-12  ">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <address>
+            <b>NOMBRE INQUILINO:</b> <%= @recibo.contrato.inquilino.nombre %> <%= @recibo.contrato.inquilino.apellido %>
+            <br>
+            <b>CEDULA:</b> <%= number_with_precision(@recibo.contrato.inquilino.cedula, precision: 0, separator: ',', delimiter: '.') %>
+            <br>
+            <b>EMAIL:</b> <%= @recibo.contrato.inquilino.email %>
+            <br>
+            <b>TELEFONO:</b> <%= @recibo.contrato.inquilino.telefono %>
+          </address>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+          <p>
+            <b>FECHA DE PAGO:</b> <%= @recibo.created_at.strftime("%d/%m/%Y") %>
+          </p>
+          <p>
+            <b>RECIBO NUMERO:</b> 001-001- 00<%= @recibo.id %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="text-center">
+          <h1>Detalle del Recibo</h1>
+        </div>
+        </span>
+        <table class="table table-hover table-bordered table-striped table-condensed" >
+          <thead>
+          <tr>
+            <th class="text-center">NUMERO DEL CONTRATO</th>
+            <th class="text-center">DESCRIPCION</th>
+            <th class="text-center">PRECIO</th>
+
+          </tr>
+          </thead>
+          <tbody class="text-center">
+          <% @suma=0; @recibo.detalle_recibos.each do |detalle_recibo| @suma+=detalle_recibo.total %>
+          <tr>
+            <td class="text-center"> <%= @recibo.contrato_id %> </em> </td>
+            <td class="text-center"> <%= detalle_recibo.descripcion %> </em> </td>
+            <td class="text-center"><%= number_with_precision(detalle_recibo.total, precision: 0, separator: ',', delimiter: '.') %></td>
+          </tr>
+          <% end %>
+          <tr>
+            <td class="text-right"><h4><strong>TOTAL: </strong></h4></td>
+            <td class="text-right text-danger"><h4><strong>GS <%= number_with_precision(@suma, precision: 0, separator: ',', delimiter: '.')%></strong></h4></td>
+
+          </tr>
+        </table>
+        <button type="button" class="btn btn-success btn-lg btn-block">
+          IMPRIMIR RECIBO  <span class="glyphicon glyphicon-chevron-right"></span>
+        </button></td>
+      </div>
+    </div>
+  </div>

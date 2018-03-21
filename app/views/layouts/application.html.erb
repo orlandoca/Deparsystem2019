@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deparsys</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""><b>DEPARSYS</b></a>
+          </div>
+          <div id="" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><%= link_to glyph(:home) + "Edificios", edificios_path %></li>
+              <!--<li><%= link_to "Departamentos", departamentos_path  %></li> -->
+              <li><%= link_to glyph(:user) + "Inquilinos " , inquilinos_path %></li>
+              <li><%= link_to glyph(:book) + "Contratos", contratos_path %></li>
+              <!--  <li><%= link_to "Movimientos", movimientos_path%></li> -->
+              <li><%= link_to glyph(:piggy_bank) + "Cajas" , cajas_path%></li>
+              <li><%= link_to glyph(:usd) + "Recibos" , recibos_path%></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              
+              <li><%=link_to glyph(:off) +" Salir "  , destroy_usuario_session_path, method: :delete, data: {comfirm:"ESTAS SEGURO?"} %>
+              </li> 
+
+            </ul>
+          </div><!--/.nav-collapse <!--
+        </div><!--/.container-fluid -->
+      </nav>
+
+	<div class="container">
+
+    <div class="row ">
+      <%= yield %>
+
+<!-- Datatables -->
+    <script type="text/javascript" Language="javascript" class="init">
+        $(function () {
+            var oTable = $('#tabla').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                  {
+                      extend: "copy",
+                      className: "btn-sm"
+                  },
+                  {
+                      extend: "csv",
+                      className: "btn-sm"
+                  },
+                  {
+                      extend: "excel",
+                      className: "btn-sm"
+                  },
+                  {
+                      extend: "pdfHtml5",
+                      className: "btn-sm"
+                  },
+                  {
+                      extend: "print",
+                      className: "btn-sm"
+                  },
+                ],
+                "bProcessing": true,
+                //"sPaginationType": "full_numbers",
+                "paging": true,
+                "iDisplayLength": 10,
+                "bPaginate": true,
+                "bSort": true,
+                "language": {
+                  "decimal": ",",
+                  "thousands": "."
+                },
+                "oLanguage": {
+                    "oPaginate": {
+                        "sPrevious": "←",
+                        "sNext": "→",
+                        "sLast": "»",
+                        "sFirst": "«"
+                    },
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:   ",
+                    "sUrl": "",
+                    "sInfoThousands": ".",
+                    "sLoadingRecords": "Cargando...",
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+
+            oTable.buttons().container().appendTo('#tablaMenu .col-md-6:eq(0)');
+        });
+    </script>
+    <!-- /Datatables -->
+    
+    </div>
+  </div>
+  <div class="footer">
+    <CENTER>Copyright © 2000-2016 DEPARSYS. | Todos los derechos reservados. | Encarnacion - Paraguay</CENTER>
+</div>
+  
+</body>
+</html>

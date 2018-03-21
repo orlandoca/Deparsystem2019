@@ -1,0 +1,2 @@
+module MovimientoCuentaHelper
+end

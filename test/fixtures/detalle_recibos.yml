@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recibo_id: 1
+  cuota: 1
+  descripcion: MyString
+  total: 1
+
+two:
+  recibo_id: 1
+  cuota: 1
+  descripcion: MyString
+  total: 1

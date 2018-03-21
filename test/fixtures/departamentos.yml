@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  edificio_id: 1
+  nombre_departamento: MyString
+  precio: 1
+  descripcion: MyString
+  estado: false
+
+two:
+  edificio_id: 1
+  nombre_departamento: MyString
+  precio: 1
+  descripcion: MyString
+  estado: false

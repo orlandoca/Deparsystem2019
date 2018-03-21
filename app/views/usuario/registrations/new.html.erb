@@ -1,0 +1,44 @@
+<center><h2>REGISTRAR USUARIO</h2> </center>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field col-lg-6 col-lg-offset-3">
+    <%= f.email_field :email, autofocus: true ,placeholder: 'INGRESE SU EMAIL', class: "form-control" %>
+  </div>
+
+  <br>
+      <br>
+      <div class="field col-lg-6 col-lg-offset-3">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> caracteres minimos para su email)</em>
+    <% end %>
+        <br>
+        <br>
+    <%= f.password_field :password, autocomplete: "off" , class: "form-control" ,placeholder: 'INGRESE SU CONTRASEÑA' %>
+  </div>
+      <br>
+
+
+    <div class="field col-lg-6 col-lg-offset-3">
+      <br>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" ,placeholder: 'CONFIRME SU CONTRASEÑA' %>
+  </div>
+
+      <!--
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+    -->
+    <br>
+
+    <div class="form-group col-lg-6 col-lg-offset-3">      <br>
+
+      <%= button_tag(type: 'submit', class: "btn btn-primary btn-block") do %>
+          <span class="glyphicon glyphicon-plus-sign"></span> Registrar
+      <% end %>
+    </div>
+<% end %>
+
+<center>
+<%= render "usuario/shared/links" %>
+</center>
