@@ -4,8 +4,14 @@ class ContratosController < ApplicationController
   # GET /contratos
   # GET /contratos.json
   def index
-    @contratos = Contrato.all
+    cajaabierto = Caja.where(estado:0)
+    if (cajaabierto.count > 0)
+      @contratos = Contrato.all
+    else
+       redirect_to new_caja_path
+    end
   end
+
 
   # GET /contratos/1
   # GET /contratos/1.json
