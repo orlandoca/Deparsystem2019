@@ -10,6 +10,13 @@ class RecibosController < ApplicationController
   # GET /recibos/1
   # GET /recibos/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReportePdf.new(@recibo)
+        send_data pdf.render, filename: 'show.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   # GET /recibos/new

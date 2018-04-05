@@ -63,5 +63,8 @@ gem "jquery-ui-rails"
 gem "rails4-autocomplete"
 # gema para la subir imagenes
 gem 'paperclip'
-
 gem 'carrierwave'
+
+#GEMA PARA LOS REPORTES
+gem 'prawn'
+gem 'prawn-table'

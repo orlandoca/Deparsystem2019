@@ -60,6 +60,7 @@
         <button type="button" class="btn btn-success btn-lg btn-block">
           IMPRIMIR RECIBO  <span class="glyphicon glyphicon-chevron-right"></span>
         </button></td>
+        <%= link_to 'Recibo', 'http://localhost:3000/recibos/'+@recibo.id.to_s+'.pdf',  class: "glyphicon glyphicon-chevron-right", target: '_blank' %>
       </div>
     </div>
   </div>
