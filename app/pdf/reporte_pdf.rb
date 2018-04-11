@@ -76,7 +76,7 @@ class ReportePdf < Prawn::Document
       row(0).font_style = :bold
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.column_widths = [45, 300, 200]
+      self.column_widths = [40, 300, 200]
     end
   end
   
@@ -103,7 +103,11 @@ class ReportePdf < Prawn::Document
   
   def detalles_rows2
     move_down 40
-    [['TOTAL ', @recibo.fecha]]
+    @total=0
+
+    @recibo.detalle_recibos.each {|detalle| @total += detalle.total}
+
+    [['TOTAL ',  @total]]
   end
 
 end
