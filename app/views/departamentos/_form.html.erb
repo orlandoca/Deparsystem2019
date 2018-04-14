@@ -1,4 +1,4 @@
-<div class="panel panel-primary text-uppercase">
+<div class="panel panel-primary ">
     <div class="panel-body">
         <%= form_for(@departamento) do |f| %>
         <% if @departamento.errors.any? %>
@@ -25,11 +25,11 @@
         </div>
         <div class="field">
             <%= f.label :descripcion %><br>
-            <%= f.text_field :descripcion , class: "form-control input-sm text-uppercase " %>
+            <%= f.text_field :descripcion , class: "form-control input-sm  " %>
         </div>
         <div class="field">
             <%= f.label :estado %><br>
-            <%= f.check_box :estado , class: " input-sm text-uppercase "%>
+            <%= f.check_box :estado , class: " input-sm "%>
         </div>
         <div class="actions">
             <%= f.submit %>

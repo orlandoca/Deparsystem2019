@@ -25,7 +25,7 @@
   <tbody>
     <% @cajas.each do |caja| %>
       <tr>
-        <td><%= caja.usuario_id %></td>
+        <td><%= caja.usuario.email %></td>
         <td><%= caja.fecha_cierre %></td>
         <td><%= number_with_precision(caja.apertura, precision: 0, separator: ',', delimiter: '.') %></td>
         <td><%= number_with_precision(caja.cierre, precision: 0, separator: ',', delimiter: '.') %></td>
