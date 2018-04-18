@@ -62,7 +62,7 @@ class ContratosController < ApplicationController
   def update
     respond_to do |format|
       if @contrato.update(contrato_params)
-        format.html { redirect_to @contrato, notice: 'Contrato was successfully updated.' }
+        format.html { redirect_to @contrato, notice: 'Contrato actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @contrato }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ class ContratosController < ApplicationController
   def destroy
     @contrato.destroy
     respond_to do |format|
-      format.html { redirect_to contratos_url, notice: 'Contrato was successfully destroyed.' }
+      format.html { redirect_to contratos_url, notice: 'Contrato eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

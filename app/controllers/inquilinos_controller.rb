@@ -4,7 +4,12 @@ class InquilinosController < ApplicationController
   # GET /inquilinos
   # GET /inquilinos.json
   def index
-    @inquilinos = Inquilino.all
+    cajaabierto = Caja.where(estado:0)
+    if (cajaabierto.count > 0)
+      @inquilinos = Inquilino.all
+    else
+      redirect_to new_caja_path
+    end
   end
 
   # GET /inquilinos/1
@@ -28,7 +33,7 @@ class InquilinosController < ApplicationController
 
     respond_to do |format|
       if @inquilino.save
-        format.html { redirect_to @inquilino, notice: 'INQUILINO CREADO CORRECTAMENTE.' }
+        format.html { redirect_to @inquilino, notice: 'Inquilino creado exitosamente.' }
         format.json { render :show, status: :created, location: @inquilino }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class InquilinosController < ApplicationController
   def update
     respond_to do |format|
       if @inquilino.update(inquilino_params)
-        format.html { redirect_to @inquilino, notice: 'Inquilino was successfully updated.' }
+        format.html { redirect_to @inquilino, notice: 'Inquilino actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @inquilino }
       else
         format.html { render :edit }
@@ -56,7 +61,7 @@ class InquilinosController < ApplicationController
   def destroy
     @inquilino.destroy
     respond_to do |format|
-      format.html { redirect_to inquilinos_url, notice: 'Inquilino was successfully destroyed.' }
+      format.html { redirect_to inquilinos_url, notice: 'Inquilino eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

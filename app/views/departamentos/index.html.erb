@@ -21,7 +21,7 @@
                 <tbody>
                     <% @departamentos.each do |departamento| %>
                     <tr>
-                        <td><%= departamento.edificio_id %></td>
+                        <td><%= departamento.edificio.nombre_edificio %></td>
                         <td class="text-uppercase"><%= departamento.nombre_departamento %></td>
                         <td><%= number_with_precision(departamento.precio, precision: 0, separator: ',', delimiter: '.') %></td>
                         <td class="text-uppercase"><%= departamento.descripcion %></td>

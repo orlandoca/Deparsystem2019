@@ -35,7 +35,7 @@ class CajasController < ApplicationController
     respond_to do |format|
       if @caja.save
         @mov_caja = MovCaja.create!(caja_id: @caja.id, concepto: 'Apertura de caja', ingreso: @caja.apertura, egreso: 0, saldo: @caja.apertura)
-        format.html { redirect_to @caja, notice: 'CAJA ABIERTO CORRECTAMENTE.' }
+        format.html { redirect_to @caja, notice: 'Caja abierto exitosamente.' }
         format.json { render :show, status: :created, location: @caja }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class CajasController < ApplicationController
 
       @caja.fecha_cierre = Time.now
       if @caja.update(caja_params)
-        format.html { redirect_to @caja, notice: 'LA CAJA FUE CERRADA CORRECTAMENTE.' }
+        format.html { redirect_to @caja, notice: ' Caja cerrada exitosamente.' }
         format.json { render :show, status: :ok, location: @caja }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class CajasController < ApplicationController
   def destroy
     @caja.destroy
     respond_to do |format|
-      format.html { redirect_to cajas_url, notice: 'Caja was successfully destroyed.' }
+      format.html { redirect_to cajas_url, notice: 'Caja eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

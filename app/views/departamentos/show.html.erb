@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Edificio:</strong>
@@ -25,5 +25,8 @@
   <%= @departamento.estado %>
 </p>
 
-<%= link_to 'Edit', edit_departamento_path(@departamento) %> |
-<%= link_to 'Back', departamentos_path %>
+
+
+<%= link_to glyph(:pencil) + 'Editar', edit_departamento_path(@departamento) , class: "btn btn-warning btn-xs" %> |
+
+<%= link_to glyph(:arrow_left) + ' ATRAS', departamentos_path , class: "btn btn-default btn-xs"%>

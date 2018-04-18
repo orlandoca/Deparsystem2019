@@ -3,8 +3,14 @@ class EdificiosController < ApplicationController
 
   # GET /edificios
   # GET /edificios.json
+
   def index
-    @edificios = Edificio.all
+    cajaabierto = Caja.where(estado:0)
+    if (cajaabierto.count > 0)
+      @edificios = Edificio.all
+    else
+      redirect_to new_caja_path
+    end
   end
 
   # GET /edificios/1
@@ -28,7 +34,7 @@ class EdificiosController < ApplicationController
 
     respond_to do |format|
       if @edificio.save
-        format.html { redirect_to @edificio, notice: 'EDIFICIO CREADO CORRECTAMENTE.' }
+        format.html { redirect_to @edificio, notice: 'Edificio creado exitosamente.' }
         format.json { render :show, status: :created, location: @edificio }
       else
         format.html { render :new }
@@ -42,7 +48,7 @@ class EdificiosController < ApplicationController
   def update
     respond_to do |format|
       if @edificio.update(edificio_params)
-        format.html { redirect_to @edificio, notice: 'Edificio was successfully updated.' }
+        format.html { redirect_to @edificio, notice: 'Edificio actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @edificio }
       else
         format.html { render :edit }

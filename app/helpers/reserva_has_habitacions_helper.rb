@@ -1,0 +1,2 @@
+module ReservaHasHabitacionsHelper
+end

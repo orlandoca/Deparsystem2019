@@ -4,7 +4,12 @@ class RecibosController < ApplicationController
   # GET /recibos
   # GET /recibos.json
   def index
-    @recibos = Recibo.all
+    cajaabierto = Caja.where(estado:0)
+    if (cajaabierto.count > 0)
+      @recibos = Recibo.all
+    else
+      redirect_to new_caja_path
+    end
   end
 
   # GET /recibos/1
@@ -35,7 +40,7 @@ class RecibosController < ApplicationController
 
     respond_to do |format|
       if @recibo.save
-        format.html { redirect_to @recibo, notice: 'Recibo was successfully created.' }
+        format.html { redirect_to @recibo, notice: 'Recibo creado exitosamente.' }
         format.json { render :show, status: :created, location: @recibo }
       else
         format.html { render :new }
@@ -49,7 +54,7 @@ class RecibosController < ApplicationController
   def update
     respond_to do |format|
       if @recibo.update(recibo_params)
-        format.html { redirect_to @recibo, notice: 'Recibo was successfully updated.' }
+        format.html { redirect_to @recibo, notice: 'Recibo actualizado exitosamente .' }
         format.json { render :show, status: :ok, location: @recibo }
       else
         format.html { render :edit }
@@ -63,7 +68,7 @@ class RecibosController < ApplicationController
   def destroy
     @recibo.destroy
     respond_to do |format|
-      format.html { redirect_to recibos_url, notice: 'Recibo was successfully destroyed.' }
+      format.html { redirect_to recibos_url, notice: 'Recibo eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

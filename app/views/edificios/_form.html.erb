@@ -12,22 +12,27 @@
         </div>
         <% end %>
 
-        <div class="field">
+        <div class="col-lg-12">
             <%= f.label :nombre_edificio %><br>
             <%= f.text_field :nombre_edificio, class: "form-control input-sm"%>
         </div>
-        <div class="field">
+        <div class="col-lg-12">
             <%= f.label :nombre_propietario %><br>
             <%= f.text_field :nombre_propietario, class: "form-control input-sm"%>
         </div>
-        <div class="field">
+        <div class="col-lg-12">
             <%= f.label :direccion %><br>
             <%= f.text_field :direccion , class: "form-control input-sm"%>
         </div>
+        <br>
+          <p>
 
-          <div class="col-lg-12">
-            <%= f.add_nested_fields_link :departamentos %>
+          <div class="col-lg-">
+            <%= f.add_nested_fields_link :departamentos , "Agregar Departamento" , class: "btn btn-primary pull-rigth"%>
+            <br>
+            <br>
             <%= f.nested_fields_for :departamentos , class: "btn btn-warning pull-rigth" ,  layout: :inline do |ff| %>
+                <br>
                 <%= ff.hidden_field :id %>
                 <div class="form-group col-md-3">
                   <%= ff.text_field :nombre_departamento, placeholder: 'Nombre', class: 'form-control input-sm' %>
