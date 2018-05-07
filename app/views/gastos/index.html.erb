@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Gastos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cantidad</th>
+      <th>Detalle</th>
+      <th>Costo</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gastos.each do |gasto| %>
+      <tr>
+        <td><%= gasto.cantidad %></td>
+        <td><%= gasto.detalle %></td>
+        <td><%= gasto.costo %></td>
+        <td><%= gasto.total %></td>
+        <td><%= link_to 'Show', gasto %></td>
+        <td><%= link_to 'Edit', edit_gasto_path(gasto) %></td>
+        <td><%= link_to 'Destroy', gasto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gasto', new_gasto_path %>

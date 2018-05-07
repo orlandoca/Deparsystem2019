@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :gastos
   resources :inquilinos
   resources :mov_cajas
   resources :cajas
