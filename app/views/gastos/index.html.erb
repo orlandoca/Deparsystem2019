@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Edificio</th>
       <th>Cantidad</th>
       <th>Detalle</th>
       <th>Costo</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @gastos.each do |gasto| %>
       <tr>
+        <td><%= gasto.edificio_id %></td>
         <td><%= gasto.cantidad %></td>
         <td><%= gasto.detalle %></td>
         <td><%= gasto.costo %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425014555) do
+ActiveRecord::Schema.define(version: 20180508005045) do
 
   create_table "cajas", force: :cascade do |t|
     t.integer  "usuario_id",   limit: 4
@@ -70,13 +70,16 @@ ActiveRecord::Schema.define(version: 20180425014555) do
   end
 
   create_table "gastos", force: :cascade do |t|
-    t.integer  "cantidad",   limit: 4
-    t.string   "detalle",    limit: 255
-    t.integer  "costo",      limit: 4
-    t.integer  "total",      limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "edificio_id", limit: 4
+    t.integer  "cantidad",    limit: 4
+    t.string   "detalle",     limit: 255
+    t.integer  "costo",       limit: 4
+    t.integer  "total",       limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  add_index "gastos", ["edificio_id"], name: "gastos_edificio_id_fk", using: :btree
 
   create_table "inquilinos", force: :cascade do |t|
     t.integer  "cedula",     limit: 4

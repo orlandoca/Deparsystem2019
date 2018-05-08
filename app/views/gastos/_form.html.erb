@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
+    <div class="field">
+      <%= f.label :edificio_id %><br>
+      <%= f.collection_select(:edificio_id, Edificio.all, :id, :nombre_edificio, { prompt: true },{class: 'form-control input-sm text-uppercase'}) %>        </div>
+    </div>
 
+  
   <div class="field">
     <%= f.label :cantidad %><br>
     <%= f.number_field :cantidad %>

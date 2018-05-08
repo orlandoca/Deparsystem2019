@@ -69,6 +69,6 @@ class GastosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gasto_params
-      params.require(:gasto).permit(:cantidad, :detalle, :costo, :total)
+      params.require(:gasto).permit(:edificio_id, :cantidad, :detalle, :costo, :total)
     end
 end

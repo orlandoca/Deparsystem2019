@@ -1,6 +1,7 @@
 class Edificio < ActiveRecord::Base
 
 	has_many :departamentos
+	has_many :gastos
 
 	accepts_nested_attributes_for :departamentos, allow_destroy: true
 
