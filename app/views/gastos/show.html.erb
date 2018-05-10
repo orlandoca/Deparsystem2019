@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+
+
+
 <p>
   <strong>Edificio:</strong>
   <%= @gasto.edificio_id %>
 </p>
+
 
 <p>
   <strong>Cantidad:</strong>
@@ -19,11 +23,18 @@
   <strong>Costo:</strong>
   <%= @gasto.costo %>
 </p>
-
+<!--
 <p>
   <strong>Total:</strong>
   <%= @gasto.total %>
 </p>
+-->
+<p>
+  <strong>FECHA :</strong><br>
+  <%= @gasto.created_at.strftime("%d/%m/%Y") %>
+</p>
 
-<%= link_to 'Edit', edit_gasto_path(@gasto) %> |
-<%= link_to 'Back', gastos_path %>
+
+<%= link_to glyph(:pencil) + 'Editar', edit_gasto_path(@gasto) , class: "btn btn-warning btn-xs" %> |
+
+<%= link_to glyph(:arrow_left) + ' ATRAS', gastos_path , class: "btn btn-default btn-xs"%>

@@ -1,35 +1,52 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="panel-title">Lista de Gastos</h1>
+    </div>
+    <div class="panel-body">
+      <table id="tabla" class="table table-striped table-hover" width="100%">
+        <thead>
+        <tr>
+          <th>Edificio</th>
+          <th>Cantidad</th>
+          <th>Detalle</th>
+          <th>Costo</th>
+          <th>fECHA</th>
+          <th>VER</th>
+          <th>EDITAR</th>
+          <th>ELIMINAR</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @suma=0; @gastos.each do |gasto| @suma+=gasto.costo  %>
 
-<h1>Listing Gastos</h1>
+            <tr>
+              <td><%= number_with_precision(gasto.edificio.nombre_edificio, precision: 0, separator: ',', delimiter: '.') %></td>
+              <td><%= gasto.cantidad %></td>
+              <td><%= gasto.detalle %></td>
+              <td><%= number_with_precision(gasto.costo, precision: 0, separator: ',', delimiter: '.') %></td>
 
-<table>
-  <thead>
-    <tr>
-      <th>Edificio</th>
-      <th>Cantidad</th>
-      <th>Detalle</th>
-      <th>Costo</th>
-      <th>Total</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+              <td><%= gasto.created_at.strftime("%d/%m/%Y") %></td>
+              <!-- <td><%= number_with_precision(gasto.total, precision: 0, separator: ',', delimiter: '.') %></td> -->
 
-  <tbody>
-    <% @gastos.each do |gasto| %>
-      <tr>
-        <td><%= gasto.edificio_id %></td>
-        <td><%= gasto.cantidad %></td>
-        <td><%= gasto.detalle %></td>
-        <td><%= gasto.costo %></td>
-        <td><%= gasto.total %></td>
-        <td><%= link_to 'Show', gasto %></td>
-        <td><%= link_to 'Edit', edit_gasto_path(gasto) %></td>
-        <td><%= link_to 'Destroy', gasto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
+              <td><%= link_to 'VER', gasto , class: "btn btn-info btn-xs" %></td>
+              <td><%= link_to 'EDITAR', edit_gasto_path(gasto), class: "btn btn-warning btn-xs" %></td>
+              <td><%= link_to 'ELIMINAR', gasto, method: :delete, data: { confirm: 'ESTAS SEGURO?' } , class: "btn btn-danger btn-xs" %></td>
+            </tr>
+        <% end %>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="7" class="text-right"><h4><strong>TOTAL: </strong></h4></td>
+          <td class="text-right text-danger"><h4><strong>GS <%= @suma %></strong></h4></td>
+
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
 <br>
-
-<%= link_to 'New Gasto', new_gasto_path %>
+<%= link_to 'Nuevo Gasto', new_gasto_path ,class: 'btn btn-success btn-sm pull-left' %>
