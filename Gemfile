@@ -72,3 +72,6 @@ gem 'prawn-table'
 #GEMA PARA convertir numeros en letras
 #gem 'rubygems'
 gem 'number_to_words'
+
+#Gema de Consultas de fechas
+gem 'by_star', git: "git://github.com/radar/by_star"

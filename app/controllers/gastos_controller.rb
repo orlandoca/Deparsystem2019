@@ -4,7 +4,9 @@ class GastosController < ApplicationController
   # GET /gastos
   # GET /gastos.json
   def index
-    @gastos = Gasto.all
+
+    @gastos = Gasto.by_month(Date.today)
+
   end
 
   # GET /gastos/1
