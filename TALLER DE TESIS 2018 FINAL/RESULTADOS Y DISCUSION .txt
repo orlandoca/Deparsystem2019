@@ -1,0 +1,12 @@
+Tareas administrativas 
+Este punto se consideró preciso ya que incumbe en la actividad principal a la cual la aplicación estará dirigido, se destacó puntos como de qué manera registran los cobros de alquiler, como llevan los gastos extras del inmueble, si tienen digitalizados los contratos, como saben si están en mora algún inquilino , etc. Se buscó captar cuales eran las tareas que requieren realizar el administrador. 
+Tiempo para las tareas.
+Este segundo punto se consideró el tiempo empleado a realizar las tareas citadas anteriormente, debido que es un factor muy importante ya que se pierde tiempo elaborando manualmente todas las tareas. Con la aplicación web busca agilizar y ahorrar tiempo de trabajo.
+El método de recolección de datos fue mediante la entrevista que ayudo a detectar  la operativa aunque no todas pero para tener un panorama cercano de la misma.  Por tal motivo se acompañó con observaciones destacando todos los eventos de relevancia, también teniendo en cuenta que el observador forma parte de la empresa. Dos puntos que se destacaron en la observación consistían en:
+Observar el trabajo cotidiano del administrador llegando a entender la manera en que trabaja y realiza sus actividades.
+Medir de alguna manera el tiempo que lleva la tarea, gracias a que el observador se encontraba presente en el momento de dichas actividades.
+No se utiliza ninguna metodología para agilizar  
+	Luego de haber hecho el relevamiento de datos correspondiente y de acuerdo a los resultados obtenidos de los instrumentos de recolección de datos seleccionados, se procedió a la elaboración de los requerimientos. Obteniendo lo siguiente:  
+Login, contara con un nombre de usuario y contraseña con la cual podrá acceder al sistema. Solo el administrador, es decir, la persona encargada tendrá acceso al nombre usuario y contraseña ya que no se contempla en el sistema manejo de roles. 
+Módulo de edificios, este módulo permite la creación de edificios tanto como sea posible, con sus respectivos datos como ser el dueño del mismo, dirección, con sus respectivos departamentos citando los detalles de las mismas como el nombre del departamento, precio, descripción y su disponibilidad.
+Modulo inquilinos,  contemplará la creación de inquilinos con sus respectivos datos nombre, apellido, número telefónico, email, cedula 
