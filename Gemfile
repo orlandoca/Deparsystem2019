@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
+group :production do
+  gem 'mysql2', '~> 0.3.20'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,7 +46,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 #GEMA DE LA BASE DE DATOS
-gem 'mysql2', '~> 0.3.20'
+
 
 # GEMA DE FORMULARIOS ANIDADOS
 gem 'nested_form_fields'
