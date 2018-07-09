@@ -5,11 +5,11 @@
 #   gem 'sqlite3'
 #
 default: &default
-  username: b47700e28d4290
+  username: b98874fd0eda0a
   host: us-cdbr-iron-east-04.cleardb.net
   adapter: mysql2
   enconding: utf8
-  password: 8d87478f
+  password: fcb54c8b
   pool: 5
   timeout: 5000
 
