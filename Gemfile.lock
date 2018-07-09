@@ -99,7 +99,6 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.2)
     multi_json (1.12.1)
-    mysql2 (0.3.21-x86-mingw32)
     nested_form_fields (0.8)
       coffee-rails (>= 3.2.1)
       jquery-rails
@@ -115,6 +114,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pdf-core (0.7.0)
+    pg (0.19.0-x86-mingw32)
     prawn (2.2.2)
       pdf-core (~> 0.7.0)
       ttfunk (~> 1.5)
@@ -206,10 +206,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
-  mysql2 (~> 0.3.20)
   nested_form_fields
   number_to_words
   paperclip
+  pg
   prawn
   prawn-table
   rails (= 4.2.5)

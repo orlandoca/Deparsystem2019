@@ -5,21 +5,21 @@
 #   gem 'sqlite3'
 #
 default: &default
-  username: b98874fd0eda0a
-  host: us-cdbr-iron-east-04.cleardb.net
-  adapter: mysql2
-  enconding: utf8
-  password: fcb54c8b
+  username: izsldhcivojtvc
+  host: ec2-54-227-243-210.compute-1.amazonaws.com
+  adapter: postgresql
+  enconding: unicode
+  password: 3db245587483efe04784874fe9a2b3cfeca2f20f9b05a2ebc904e99ecab9d173
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: deparsys_db
+  database: da5h81lekfv4je
 
 production:
   <<: *default
-  database: deparsys_db
+  database: da5h81lekfv4je
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
