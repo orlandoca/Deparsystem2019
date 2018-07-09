@@ -80,3 +80,5 @@ gem 'number_to_words'
 
 #Gema de Consultas de fechas
 gem 'by_star', git: "git://github.com/radar/by_star"
+
+gem 'chronic'
