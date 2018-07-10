@@ -53,6 +53,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chronic (0.10.2)
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -199,6 +200,7 @@ DEPENDENCIES
   by_star!
   byebug
   carrierwave
+  chronic
   coffee-rails (~> 4.1.0)
   devise
   execjs
@@ -222,4 +224,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.1
+   1.16.2
