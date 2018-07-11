@@ -26,10 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 group :production do
-
-  gem 'pg'
+  gem 'pg', '~> 0.20'
 end
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
