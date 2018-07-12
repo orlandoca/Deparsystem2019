@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20180508005045) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cajas", force: :cascade do |t|
     t.integer  "usuario_id"
     t.datetime "fecha_cierre"
@@ -100,8 +103,8 @@ ActiveRecord::Schema.define(version: 20180508005045) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "models", ["email"], name: "index_models_on_email", unique: true
-  add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+  add_index "models", ["email"], name: "index_models_on_email", unique: true, using: :btree
+  add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
 
   create_table "mov_cajas", force: :cascade do |t|
     t.integer  "caja_id"
@@ -145,7 +148,6 @@ ActiveRecord::Schema.define(version: 20180508005045) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true
-  add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
+  add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
+  add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
-end
