@@ -33,9 +33,17 @@
           <%= f.label :total %><br>
           <%= f.number_field :total, placeholder: 'total' ,class: "form-control input-sm" %>
         </div>
-           -->
+
+
         <div class="actions">
           <%= f.submit %>
+        </div>
+        -->
+
+        <div class="text-left">
+          <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
+              CREAR GASTO
+          <% end %>
         </div>
     <% end %>
     </div>

@@ -31,7 +31,7 @@ class ReportePdf < Prawn::Document
       text "FECHA: #{@recibo.created_at.strftime('%d/%m/%Y')}", size: 15, style: :bold
     end
 
-    bounding_box([0, 580], :width => 300, :height => 300) do
+    bounding_box([0, 580], :width => 500, :height => 300) do
       text "NOMBRE DEL INQUILINO: #{@recibo.contrato.inquilino.nombre} #{@recibo.contrato.inquilino.apellido}", size: 15, style: :bold
      end
 
