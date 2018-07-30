@@ -1,5 +1,0 @@
--https://www.residentia.net/
--https://www.uno-de-piera.com/heroku-servicio-de-computacion-en-la-nube/
--https://comprasoft.com/jetbrains/rubymine
--https://www.genbetadev.com/ruby/herramientas-imprescindibles-para-un-desarrollador-de-ruby-on-rails
--http://www.peoplecancode.com/es/tutorials/how-to-manage-users-with-devise-ruby-on-rails
