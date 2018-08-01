@@ -28,7 +28,7 @@ class PagosController < ApplicationController
 
     respond_to do |format|
       if @pago.save
-        format.html { redirect_to @pago, notice: 'Pago was successfully created.' }
+        format.html { redirect_to @pago, notice: 'Pago creado exitosamente.' }
         format.json { render :show, status: :created, location: @pago }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PagosController < ApplicationController
   def update
     respond_to do |format|
       if @pago.update(pago_params)
-        format.html { redirect_to @pago, notice: 'Pago was successfully updated.' }
+        format.html { redirect_to @pago, notice: 'Pago actualizado.' }
         format.json { render :show, status: :ok, location: @pago }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PagosController < ApplicationController
   def destroy
     @pago.destroy
     respond_to do |format|
-      format.html { redirect_to pagos_url, notice: 'Pago was successfully destroyed.' }
+      format.html { redirect_to pagos_url, notice: 'Pago eliminado.' }
       format.json { head :no_content }
     end
   end

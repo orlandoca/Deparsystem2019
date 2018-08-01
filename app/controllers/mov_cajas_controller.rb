@@ -28,7 +28,7 @@ class MovCajasController < ApplicationController
 
     respond_to do |format|
       if @mov_caja.save
-        format.html { redirect_to @mov_caja, notice: 'Mov caja was successfully created.' }
+        format.html { redirect_to @mov_caja, notice: 'Movimiento de  caja creado exitosamente.' }
         format.json { render :show, status: :created, location: @mov_caja }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MovCajasController < ApplicationController
   def update
     respond_to do |format|
       if @mov_caja.update(mov_caja_params)
-        format.html { redirect_to @mov_caja, notice: 'Mov caja was successfully updated.' }
+        format.html { redirect_to @mov_caja, notice: 'Movimiento de caja actualizada.' }
         format.json { render :show, status: :ok, location: @mov_caja }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MovCajasController < ApplicationController
   def destroy
     @mov_caja.destroy
     respond_to do |format|
-      format.html { redirect_to mov_cajas_url, notice: 'Mov caja was successfully destroyed.' }
+      format.html { redirect_to mov_cajas_url, notice: 'Movimiento de Caja eliminada.' }
       format.json { head :no_content }
     end
   end
