@@ -1,59 +1,68 @@
 <div class="panel panel-primary ">
-    <div class="panel-body">
-        <%= form_for(@contrato, :html => {:multipart => true}) do |f| %>
+  <div class="panel-body">
+    <%= form_for(@contrato, :html => {:multipart => true}) do |f| %>
         <% if @contrato.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@contrato.errors.count, "error") %> prohibited this contrato from being saved:</h2>
-            <ul>
+            <div id="error_explanation">
+              <h2><%= pluralize(@contrato.errors.count, "error") %> prohibited this contrato from being saved:</h2>
+              <ul>
                 <% @contrato.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+                    <li><%= message %></li>
                 <% end %>
-            </ul>
-        </div>
+              </ul>
+            </div>
         <% end %>
 
-        <div class="field">
-          <%= f.label :inquilino_id, "Elige Inquilino" %><br>
+        <div class="row">
+          <div class="form-group col-lg-6">
+            <%= f.label :inquilino_id, "Elige Inquilino" %><br>
+            <% inquilinos_array = Inquilino.where(:estado => 0).map { |inquilino| [" #{inquilino.nombre},#{inquilino.apellido}", inquilino.id] } %>
+            <%= f.select(:inquilino_id, options_for_select(inquilinos_array), {prompt: true}, {class: 'form-control input-sm '}) %>
+          </div>
 
-          <% inquilinos_array = Inquilino.where(:estado => 0).map { |inquilino| [" #{inquilino.nombre},#{inquilino.apellido}", inquilino.id ] }  %>
-          <%= f.select(:inquilino_id, options_for_select(inquilinos_array), {prompt: true}, {class: 'form-control input-sm '})  %>
 
+          <div class="form-group col-lg-6">
+            <%= f.label :departamento_id, "Elige un Edificio con su departamento y su precio" %><br>
+            <% departamentos_array = Departamento.where(:estado => 0).map { |departamento| [" #{departamento.edificio.nombre_edificio} , #{departamento.nombre_departamento} , #{departamento.precio} ", departamento.id] } %>
+            <%= f.select(:departamento_id, options_for_select(departamentos_array), {prompt: true}, {class: 'form-control input-sm '}) %>
+          </div>
         </div>
 
-          <div class="field">
-                <%= f.label :departamento_id, "Elige un Edificio con su departamento y su precio" %><br>
-            <% departamentos_array = Departamento.where(:estado => 0).map { |departamento| [" #{departamento.edificio.nombre_edificio} , #{departamento.nombre_departamento} , #{departamento.precio} ", departamento.id ] }  %>
-            <%= f.select(:departamento_id, options_for_select(departamentos_array), {prompt: true}, {class: 'form-control input-sm '})  %>
-        </div>
-
-    
-        <div class="hidden">
-            <%= f.label :fecha_contrato %><br>
-            <%= f.date_select :fecha_contrato , class: "form-control input-sm  "%>
-        </div>
-        
-        <div class="field">
+        <div class="row">
+          <div class="form-group col-lg-6">
             <%= f.label :inicio_contrato %><br>
-            <%= f.date_select :inicio_contrato , class: "form-control input-sm  " %>
+            <%= f.date_select :inicio_contrato, class: "form-control input-sm" , required:'' %>
+          </div>
+
+          <div class="form-group col-lg-6">
+            <%= f.label :fin_contrato %><br>
+            <%= f.date_select :fin_contrato, class: "form-control input-sm" , required:'' %>
+          </div>
         </div>
 
-          <div class="field">
-            <%= f.label :fin_contrato %><br>
-            <%= f.date_select :fin_contrato , class: "form-control input-sm  " %>
-          </div>
-          <br>
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <%= f.label :imagen %><br>
+              <%= f.file_field :imagen, class: "form-control input-sm" , required:'' %>
+            </div>
 
-          <div class="field">
-            <%= f.label :imagen %><br>
-            <%= f.file_field :imagen , class: "form-control input-sm  " %>
+            <div class="form-group col-lg-6">
+              <%= f.label :imagendos %><br>
+              <%= f.file_field :imagendos, class: "form-control input-sm" , required:'' %>
+            </div>
           </div>
-          <br>
 
-          <div class="text-left">
-            <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
-                CREAR CONTRATO
-            <% end %>
+          <div class="hidden">
+            <%= f.label :fecha_contrato %><br>
+            <%= f.date_select :fecha_contrato, class: "form-control input-sm  " %>
           </div>
-        <% end %>
-    </div>
+
+
+
+        <div class="text-left">
+          <%= button_tag(type: 'submit', class:"btn btn-success btn-block") do %>
+              CREAR CONTRATO
+          <% end %>
+        </div>
+    <% end %>
+  </div>
 </div>

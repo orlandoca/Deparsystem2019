@@ -90,6 +90,6 @@ class ContratosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contrato_params
-      params.require(:contrato).permit(:inquilino_id, :edificio_id, :departamento_id, :fecha_contrato, :inicio_contrato, :fin_contrato, :vencimiento, :imagen)
+      params.require(:contrato).permit(:inquilino_id, :edificio_id, :departamento_id, :fecha_contrato, :inicio_contrato, :fin_contrato, :vencimiento, :imagen, :imagendos)
     end
 end

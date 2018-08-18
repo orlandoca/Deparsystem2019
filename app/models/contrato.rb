@@ -1,6 +1,7 @@
 class Contrato < ActiveRecord::Base
 
 	mount_uploader :imagen, FotoUploader
+	mount_uploader :imagendos, FotoUploader
 
 	belongs_to :inquilino
 	belongs_to :departamento
