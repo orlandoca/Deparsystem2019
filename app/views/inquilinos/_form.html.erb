@@ -1,4 +1,4 @@
-<div class="panel panel-primary text-uppercase">
+<div class="panel panel-primary ">
   <div class="panel-body">
     <%= form_for(@inquilino) do |f| %>
         <% if @inquilino.errors.any? %>
@@ -11,33 +11,41 @@
               </ul>
             </div>
         <% end %>
-        <div class="field">
-          <%= f.label :cedula %><br>
-          <%= f.number_field :cedula,placeholder: 'Cedula' ,class: "form-control input-sm "%>
+
+        <div class="row">
+          <div class="form-group col-lg-4">
+            <%= f.label :cedula %><br>
+            <%= f.number_field :cedula, placeholder: 'Cedula', class: "form-control input-sm " %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :nombre %><br>
+            <%= f.text_field :nombre, placeholder: 'Nombres ', class: "form-control input-sm" %>
+          </div>
+          <div class="form-group col-lg-4">
+            <%= f.label :apellido %>
+            <%= f.text_field :apellido, placeholder: 'Apellidos', class: "form-control input-sm" %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :telefono %><br>
+            <%= f.number_field :telefono, placeholder: 'Telefono', class: "form-control input-sm" %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :email %><br>
+            <%= f.text_field :email, placeholder: 'Email', class: "form-control input-sm " %>
+          </div>
+          <div class="form-group col-lg-4">
+            <div class="hidden">
+              <%= f.label :estado %><br>
+              <%= f.check_box :estado, placeholder: 'estado', class: "form-control input-sm " %>
+            </div>
+          </div>
         </div>
-        <div class="field">
-          <%= f.label :nombre %><br>
-          <%= f.text_field :nombre, placeholder: 'Nombres ', class: "form-control input-sm"%>
-        </div>
-        <div class="field">
-          <%= f.label :apellido %><br>
-          <%= f.text_field :apellido ,placeholder: 'Apellidos', class: "form-control input-sm"%>
-        </div>
-        <div class="field">
-          <%= f.label :telefono %><br>
-          <%= f.number_field :telefono, placeholder: 'Telefono',class: "form-control input-sm"%>
-        </div>
-        <div class="field">
-          <%= f.label :email %><br>
-          <%= f.text_field :email, placeholder: 'Email', class: "form-control input-sm "%>
-        </div>
-        <div class="hidden">
-          <%= f.label :estado %><br>
-          <%= f.check_box :estado, placeholder: 'Email', class: "form-control input-sm "%>
-        </div>
-        <br>
+
         <div class="text-left">
-          <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
+          <%= button_tag(type: 'submit', class: "btn btn-success btn-block") do %>
               CREAR INQUILINO
           <% end %>
         </div>

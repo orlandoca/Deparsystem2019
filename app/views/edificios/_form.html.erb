@@ -41,13 +41,13 @@
               <%= f.nested_fields_for :departamentos, class: "form-horizontal", layout: :inline do |ff| %>
                   <%= ff.hidden_field :id %>
                   <div class="form-group col-md-3">
-                    <%= ff.text_field :nombre_departamento, placeholder: 'Nombre', class: 'form-control input-sm' %>
+                    <%= ff.text_field :nombre_departamento, placeholder: 'Nombre', class: 'form-control input-sm', required:'' %>
                   </div>
                   <div class="form-group col-lg-3">
-                    <%= ff.number_field :precio, placeholder: 'Precio', class: 'form-control input-sm' %>
+                    <%= ff.number_field :precio, placeholder: 'Precio', class: 'form-control input-sm' ,required:''%>
                   </div>
                   <div class="form-group col-lg-3">
-                    <%= ff.text_field :descripcion, placeholder: 'Descripcion', class: 'form-control input-sm' %>
+                    <%= ff.text_field :descripcion, placeholder: 'Descripcion', class: 'form-control input-sm', required:'' %>
                   </div>
                   <div class="form-group col-lg-1">
                     <%= ff.check_box :estado, class: "input-sm", value: 0 %>

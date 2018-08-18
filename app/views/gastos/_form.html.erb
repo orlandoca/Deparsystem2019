@@ -1,4 +1,4 @@
-<div class="panel panel-primary text-uppercase">
+<div class="panel panel-primary ">
   <div class="panel-body">
     <%= form_for(@gasto) do |f| %>
         <% if @gasto.errors.any? %>
@@ -11,40 +11,43 @@
               </ul>
             </div>
         <% end %>
-        <div class="field">
-          <%= f.label :edificio_id %><br>
-          <%= f.collection_select(:edificio_id, Edificio.all, :id, :nombre_edificio, { prompt: true },{class: 'form-control input-sm text-uppercase'}) %>
+        <div class="row">
+          <div class="form-group col-lg-4">
+            <%= f.label :edificio_id %><br>
+            <%= f.collection_select(:edificio_id, Edificio.all, :id, :nombre_edificio, {prompt: true}, {class: 'form-control input-sm text-uppercase'}) %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :cantidad %><br>
+            <%= f.number_field :cantidad, placeholder: 'cantidad', class: "form-control input-sm " %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :detalle %><br>
+            <%= f.text_field :detalle, placeholder: 'detalle', class: "form-control input-sm" %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :costo %><br>
+            <%= f.number_field :costo, placeholder: 'costo', class: "form-control input-sm" %>
+          </div>
         </div>
-        </div>
-        <div class="field">
-          <%= f.label :cantidad %><br>
-          <%= f.number_field :cantidad , placeholder: 'cantidad' ,class: "form-control input-sm "%>
-        </div>
-        <div class="field">
-          <%= f.label :detalle %><br>
-          <%= f.text_field :detalle , placeholder: 'detalle' ,class: "form-control input-sm"%>
-        </div>
-        <div class="field">
-          <%= f.label :costo %><br>
-          <%= f.number_field :costo , placeholder: 'costo' ,class: "form-control input-sm" %>
-        </div>
+
         <!-- Datatables
         <div class="field">
           <%= f.label :total %><br>
-          <%= f.number_field :total, placeholder: 'total' ,class: "form-control input-sm" %>
+          <%= f.number_field :total, placeholder: 'total', class: "form-control input-sm" %>
         </div>
-
 
         <div class="actions">
           <%= f.submit %>
         </div>
         -->
-
         <div class="text-left">
           <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
               CREAR GASTO
           <% end %>
         </div>
     <% end %>
-    </div>
+  </div>
 </div>
