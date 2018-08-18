@@ -1,72 +1,75 @@
-<div class="panel panel-primary ">
-    <div class="panel-body">
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-12">
         <%= form_for(@edificio) do |f| %>
-        <% if @edificio.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@edificio.errors.count, "error") %> prohibited this edificio from being saved:</h2>
-            <ul>
-                <% @edificio.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-            </ul>
-        </div>
-        <% end %>
-
-        <div class="col-lg-12">
-            <%= f.label :nombre_edificio %><br>
-            <%= f.text_field :nombre_edificio, class: "form-control input-sm"%>
-        </div>
-        <div class="col-lg-12">
-            <%= f.label :nombre_propietario %><br>
-            <%= f.text_field :nombre_propietario, class: "form-control input-sm"%>
-        </div>
-        <div class="col-lg-12">
-            <%= f.label :direccion %><br>
-            <%= f.text_field :direccion , class: "form-control input-sm"%>
-        </div>
-        <br>
-
-
-          <div class="col-lg-12">
-            <div class="form-group page-header">
-            <%= f.add_nested_fields_link :departamentos , "Agregar Departamento" , class: "btn btn-primary "%>
-           </div>
-          </div>
-          <div class="col-lg-12">
-            <br>
-            <%= f.nested_fields_for :departamentos , class: "btn btn-warning pull-right" ,  layout: :inline do |ff| %>
-                <br>
-                <%= ff.hidden_field :id %>
-                <div class="form-group col-md-3">
-                  <%= ff.text_field :nombre_departamento, placeholder: 'Nombre', class: 'form-control input-sm' %>
-                </div>
-                <div class="form-group col-lg-3">
-                  <%= ff.number_field :precio, placeholder: 'Precio', class: 'form-control input-sm' %>
-                </div>
-                <div class="form-group col-lg-3">
-                  <%= ff.text_field :descripcion, placeholder: 'Descripcion', class: 'form-control input-sm' %>
-                </div>
-                <div class="form-group col-lg-2">
-                  <%= ff.check_box :estado , class: "input-sm" , value:0 %>
-                </div>
-
-                <div class="form-group col-lg-1">
-                <%= ff.remove_nested_fields_link 'Remover', class: "btn btn-warning pull-rigth" %>
+            <% if @edificio.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@edificio.errors.count, "error") %> prohibited this edificio from being saved:</h2>
+                  <ul>
+                    <% @edificio.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
                 </div>
             <% end %>
-          </div>
-          <br>
-          <br>
-
-            <div class="text-left">
-              <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
-                   CREAR EDIFICIO
-              <% end %>
+            <div class="row">
+              <div class="form-group col-lg-4">
+                <%= f.label :nombre_edificio %><br>
+                <%= f.text_field :nombre_edificio, class: "form-control input-sm" %>
+              </div>
+              <div class="form-group col-lg-4">
+                <%= f.label :nombre_propietario %><br>
+                <%= f.text_field :nombre_propietario, class: "form-control input-sm" %>
+              </div>
+              <div class="form-group col-lg-4">
+                <%= f.label :direccion %><br>
+                <%= f.text_field :direccion, class: "form-control input-sm" %>
+              </div>
             </div>
-
-          <% end %>
-    </div>
-
-
-
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <%= f.add_nested_fields_link :departamentos, "Agregar Departamento", class: "btn btn-primary" %>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <hr>
+              </div>
+            </div>
+            <div class="row">
+              <%= f.nested_fields_for :departamentos, class: "form-horizontal", layout: :inline do |ff| %>
+                  <%= ff.hidden_field :id %>
+                  <div class="form-group col-md-3">
+                    <%= ff.text_field :nombre_departamento, placeholder: 'Nombre', class: 'form-control input-sm' %>
+                  </div>
+                  <div class="form-group col-lg-3">
+                    <%= ff.number_field :precio, placeholder: 'Precio', class: 'form-control input-sm' %>
+                  </div>
+                  <div class="form-group col-lg-3">
+                    <%= ff.text_field :descripcion, placeholder: 'Descripcion', class: 'form-control input-sm' %>
+                  </div>
+                  <div class="form-group col-lg-1">
+                    <%= ff.check_box :estado, class: "input-sm", value: 0 %>
+                  </div>
+                  <div class="form-group col-lg-1">
+                    <%= ff.remove_nested_fields_link 'Remover', class: "btn btn-danger" %>
+                  </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <hr>
+                  </div>
+              <% end %>
+              </div>
+              <div class="row">
+                <div class="form-group col-lg-12">
+                  <%= button_tag(type: 'submit', class: "btn btn-success btn-block") do %>
+                      CREAR EDIFICIO
+                  <% end %>
+                </div>
+              </div>
+        <% end %>
+        </div>
+  </div>
+</div>
 </div>
