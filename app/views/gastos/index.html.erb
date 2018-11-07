@@ -9,8 +9,8 @@
         <thead>
         <tr>
           <th>Edificio</th>
-          <th>Cantidad</th>
-          <th>Detalle</th>
+          <!--<th>Cantidad</th> -->
+          <th>Detalle del Gasto</th>
           <th>Costo</th>
           <th>Fecha</th>
           <th>VER</th>
@@ -22,15 +22,11 @@
         <% @suma=0; @gastos.each do |gasto| @suma+=gasto.costo  %>
 
             <tr>
-              <td><%= number_with_precision(gasto.edificio.nombre_edificio, precision: 0, separator: ',', delimiter: '.') %></td>
-              <td><%= gasto.cantidad %></td>
+              <td><%= gasto.edificio.nombre_edificio %></td>
+              <!--<td><%= gasto.cantidad %></td> -->
               <td><%= gasto.detalle %></td>
               <td><%= number_with_precision(gasto.costo, precision: 0, separator: ',', delimiter: '.') %></td>
-
               <td><%= gasto.created_at.strftime("%d/%m/%Y") %></td>
-              <!-- <td><%= number_with_precision(gasto.total, precision: 0, separator: ',', delimiter: '.') %></td> -->
-
-
               <td><%= link_to 'VER', gasto , class: "btn btn-info btn-xs" %></td>
               <td><%= link_to 'EDITAR', edit_gasto_path(gasto), class: "btn btn-warning btn-xs" %></td>
               <td><%= link_to 'ELIMINAR', gasto, method: :delete, data: { confirm: 'ESTAS SEGURO?' } , class: "btn btn-danger btn-xs" %></td>
@@ -39,8 +35,8 @@
         </tbody>
         <tfoot>
         <tr>
-          <td colspan="7" class="text-right"><h4><strong>TOTAL: </strong></h4></td>
-          <td class="text-right text-danger"><h4><strong>GS <%= @suma %></strong></h4></td>
+          <td colspan="6" class="text-right"><h4><strong>TOTAL: </strong></h4></td>
+          <td class="text-right text-danger"><h4><strong>GS <%= number_with_precision(@suma, precision: 0, separator: ',', delimiter: '.') %></strong></h4></td>
 
         </tr>
         </tfoot>

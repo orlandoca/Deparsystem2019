@@ -14,8 +14,8 @@
           <th>Fecha contrato</th>
           <th>Inicio contrato</th>
           <th>Fin contrato</th>
-          <th>Contrato 1</th>
-          <th>Contrato 2</th>
+          <th>Contrato escaneado</th>
+          <!--<th>Contrato 2</th> -->
           <th>Ver</th>
           <th>Editar</th>
           <th>Eliminar</th>
@@ -35,10 +35,11 @@
               <td>
                 <a target="_blank" href="<%= contrato.imagen_url %>" download="<%= contrato.imagen_url %>">Descargar </a>
               </td>
+              <!--
               <td>
                 <a target="_blank" href="<%= contrato.imagendos_url %>" download="<%= contrato.imagendos_url %>">Descargar</a>
               </td>
-
+              -->
               <td><%= link_to 'VER', contrato, class: "btn btn-info btn-xs" %></td>
               <td><%= link_to 'EDITAR', edit_contrato_path(contrato), class: "btn btn-warning btn-xs" %></td>
               <td><%= link_to 'ELIMINAR', contrato, method: :delete, data: {confirm: 'ESTAS SEGURO DE ELIMINAR ESTE CONTRATO?'}, class: "btn btn-danger btn-xs" %></td>

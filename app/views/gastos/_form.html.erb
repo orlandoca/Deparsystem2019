@@ -17,19 +17,21 @@
             <%= f.collection_select(:edificio_id, Edificio.all, :id, :nombre_edificio, {prompt: true}, {class: 'form-control input-sm text-uppercase'}) %>
           </div>
 
-          <div class="form-group col-lg-4">
+
+          <div class=hidden>
             <%= f.label :cantidad %><br>
             <%= f.number_field :cantidad, placeholder: 'cantidad', class: "form-control input-sm " %>
           </div>
 
+
           <div class="form-group col-lg-4">
             <%= f.label :detalle %><br>
-            <%= f.text_field :detalle, placeholder: 'detalle', class: "form-control input-sm" %>
+            <%= f.text_field :detalle, placeholder: 'detalle del gasto', class: "form-control input-sm" %>
           </div>
 
           <div class="form-group col-lg-4">
             <%= f.label :costo %><br>
-            <%= f.number_field :costo, placeholder: 'costo', class: "form-control input-sm" %>
+            <%= f.number_field :costo, placeholder: 'Costo', class: "form-control input-sm" %>
           </div>
         </div>
 
@@ -44,7 +46,7 @@
         </div>
         -->
         <div class="text-left">
-          <%= button_tag(type: 'submit', class: "btn btn-info btn-sm") do %>
+          <%= button_tag(type: 'submit', class: "btn btn-success btn-block") do %>
               CREAR GASTO
           <% end %>
         </div>

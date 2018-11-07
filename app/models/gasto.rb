@@ -1,5 +1,6 @@
 class Gasto < ActiveRecord::Base
   belongs_to :edificio
+  belongs_to :caja
 
   validates :detalle, presence: true
 

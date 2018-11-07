@@ -31,6 +31,7 @@
         <td><%= number_with_precision(caja.cierre, precision: 0, separator: ',', delimiter: '.') %></td>
         <td><%= number_with_precision(caja.entrada, precision: 0, separator: ',', delimiter: '.') %></td>
         <td><%= number_with_precision(caja.salida, precision: 0, separator: ',', delimiter: '.') %></td>
+
         <% if caja.estado %>
             <td class="text-center"><label class="label label-default">CERRADO</label></td>
         <% else %>

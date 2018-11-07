@@ -30,36 +30,35 @@
         <div class="row">
           <div class="form-group col-lg-6">
             <%= f.label :inicio_contrato %><br>
-            <%= f.date_select :inicio_contrato, class: "form-control input-sm" , required:'' %>
+            <%= f.date_select :inicio_contrato, class: "form-control input-sm", required: '' %>
           </div>
 
           <div class="form-group col-lg-6">
             <%= f.label :fin_contrato %><br>
-            <%= f.date_select :fin_contrato, class: "form-control input-sm" , required:'' %>
+            <%= f.date_select :fin_contrato,   class:"form-control input-sm", required: '' %>
           </div>
         </div>
 
-          <div class="row">
-            <div class="form-group col-lg-6">
-              <%= f.label :imagen %><br>
-              <%= f.file_field :imagen, class: "form-control input-sm" , required:'' %>
-            </div>
-
-            <div class="form-group col-lg-6">
-              <%= f.label :imagendos %><br>
-              <%= f.file_field :imagendos, class: "form-control input-sm" , required:'' %>
-            </div>
+        <div class="row">
+          <div class="form-group col-lg-6">
+            <%= f.label :imagen %><br>
+            <%= f.file_field :imagen, class: "form-control input-sm", required: '' %>
           </div>
 
-          <div class="hidden">
-            <%= f.label :fecha_contrato %><br>
-            <%= f.date_select :fecha_contrato, class: "form-control input-sm  " %>
+          <div class="form-group col-lg-6">
+            <%= f.label :imagendos %><br>
+            <%= f.file_field :imagendos, class: "form-control input-sm", required: '' %>
           </div>
+        </div>
 
+        <div class="hidden">
+          <%= f.label :fecha_contrato %><br>
+          <%= f.date_select :fecha_contrato, class: "form-control input-sm  " %>
+        </div>
 
 
         <div class="text-left">
-          <%= button_tag(type: 'submit', class:"btn btn-success btn-block") do %>
+          <%= button_tag(type: 'submit', class: "btn btn-success btn-block") do %>
               CREAR CONTRATO
           <% end %>
         </div>
