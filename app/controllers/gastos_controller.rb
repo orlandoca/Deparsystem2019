@@ -30,6 +30,9 @@ class GastosController < ApplicationController
 
     respond_to do |format|
       if @gasto.save
+        cajaabierto = Caja.where(estado:0).last
+        cajaabierto.salida = @gasto.costo
+        cajaabierto.save
         format.html { redirect_to @gasto, notice: 'Gasto creado exitosamente.' }
         format.json { render :show, status: :created, location: @gasto }
       else

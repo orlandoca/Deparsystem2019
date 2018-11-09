@@ -15,36 +15,43 @@
     <%= f.label :usuario_id %><br>
     <%= f.number_field :usuario_id %>
   </div>
-    <div class="field">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+
       <%= f.label "fecha apertura" %><br>
       <%= f.datetime_select :created_at , readonly: "true" %>
     </div>
 
-  <div class="field">
-    <%= f.label :fecha_cierre %><br>
-    <%= f.datetime_select :fecha_cierre ,  readonly: "true"%>
-  </div>
 
-  <div class="field">
-    <%= f.label :apertura %><br>
-    <%= f.number_field :apertura , readonly: "true"%>
-  </div>
-  <div class="field">
-    <%= f.label :cierre %><br>
-    <%= f.number_field :cierre , readonly: "true" %>
-  </div>
-  <div class="field">
-    <%= f.label :entrada %><br>
-    <%= f.number_field :entrada , readonly: "true"%>
-  </div>
-  <div class="field">
-    <%= f.label :salida %><br>
-    <%= f.number_field :salida , readonly: "true"%>
-  </div>
-  <div class="field">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <%= f.label :fecha_cierre %><br>
+      <%= f.datetime_select :fecha_cierre ,  readonly: "true"%>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <%= f.label :apertura %><br>
+      <%= f.number_field :apertura , readonly: "true"%>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <%= f.label :cierre %><br>
+      <%= f.number_field :cierre , readonly: "true" %>
+     </div>
+
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <%= f.label :entrada %><br>
+      <%= f.number_field :entrada , readonly: "true"%>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <%= f.label :salida %><br>
+      <%= f.number_field :salida , readonly: "true"%>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-xs-12">
     <%= f.label :estado %><br>
     <%= f.check_box :estado , readonly: "true"%>
   </div>
+    <br>
 
       <div class="text-left">
         <%= button_tag(type: 'submit', class: "btn btn-warning btn-sm") do %>
