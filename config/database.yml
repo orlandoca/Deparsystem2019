@@ -5,29 +5,42 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  username: oerbfxpuoxqokf
-  password: 49d1d410a7177f5fb626025b924ba3d2b8fa651ad5540c3f8941107971dec1fd
-  port: 5432
-  host: ec2-54-83-33-213.compute-1.amazonaws.com
-
-
-#development:
-  #<<: *default
-  #database: db/development.sqlite3
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+  port: 3308
+  #host: ec2-54-83-33-213.compute-1.amazonaws.com
 
 development:
   <<: *default
   database: depar_db
+  adapter: mysql2
+  encoding: utf8
+  host: 127.0.0.1
+  username: root
+  password: 12345
+  pool: 5
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
+
 test:
   <<: *default
   database: depar_db_test
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  username: root
+  password: 12345
+  pool: 5
 
 production:
 #<<: *default
-   adapter: deme7g84ik7a4r
   #database: db/production.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  database: depar_db
+  host: 127.0.0.1
+  username: root
+  password: 12345
+  pool: 5

@@ -11,141 +11,148 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508005045) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20180818202304) do
 
   create_table "cajas", force: :cascade do |t|
-    t.integer  "usuario_id"
+    t.integer  "usuario_id",   limit: 4
     t.datetime "fecha_cierre"
-    t.integer  "apertura"
-    t.integer  "cierre"
-    t.integer  "entrada"
-    t.integer  "salida"
+    t.integer  "apertura",     limit: 4
+    t.integer  "cierre",       limit: 4
+    t.integer  "entrada",      limit: 4
+    t.integer  "salida",       limit: 4
     t.boolean  "estado"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "contratos", force: :cascade do |t|
-    t.integer  "inquilino_id"
-    t.integer  "departamento_id"
+    t.integer  "inquilino_id",    limit: 4
+    t.integer  "departamento_id", limit: 4
     t.date     "fecha_contrato"
     t.date     "inicio_contrato"
     t.date     "fin_contrato"
     t.date     "vencimiento"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "imagen"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "imagen",          limit: 255
+    t.string   "imagendos",       limit: 255
   end
+
+  add_index "contratos", ["departamento_id"], name: "contratos_departamento_id_fk", using: :btree
+  add_index "contratos", ["inquilino_id"], name: "contratos_inquilino_id_fk", using: :btree
 
   create_table "departamentos", force: :cascade do |t|
-    t.integer  "edificio_id"
-    t.string   "nombre_departamento"
-    t.integer  "precio"
-    t.string   "descripcion"
+    t.integer  "edificio_id",         limit: 4
+    t.string   "nombre_departamento", limit: 255
+    t.integer  "precio",              limit: 4
+    t.string   "descripcion",         limit: 255
     t.boolean  "estado"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
+  add_index "departamentos", ["edificio_id"], name: "departamentos_edificio_id_fk", using: :btree
+
   create_table "detalle_recibos", force: :cascade do |t|
-    t.integer  "recibo_id"
-    t.integer  "cuota"
-    t.string   "descripcion"
-    t.integer  "total"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "recibo_id",   limit: 4
+    t.integer  "cuota",       limit: 4
+    t.string   "descripcion", limit: 255
+    t.integer  "total",       limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "edificios", force: :cascade do |t|
-    t.string   "nombre_edificio"
-    t.string   "nombre_propietario"
-    t.string   "direccion"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "nombre_edificio",    limit: 255
+    t.string   "nombre_propietario", limit: 255
+    t.string   "direccion",          limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "gastos", force: :cascade do |t|
-    t.integer  "edificio_id"
-    t.integer  "cantidad"
-    t.string   "detalle"
-    t.integer  "costo"
-    t.integer  "total"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "edificio_id", limit: 4
+    t.integer  "cantidad",    limit: 4
+    t.string   "detalle",     limit: 255
+    t.integer  "costo",       limit: 4
+    t.integer  "total",       limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
+  add_index "gastos", ["edificio_id"], name: "gastos_edificio_id_fk", using: :btree
+
   create_table "inquilinos", force: :cascade do |t|
-    t.integer  "cedula"
-    t.string   "nombre"
-    t.string   "apellido"
-    t.integer  "telefono"
-    t.string   "email"
+    t.integer  "cedula",     limit: 4
+    t.string   "nombre",     limit: 255
+    t.string   "apellido",   limit: 255
+    t.integer  "telefono",   limit: 4
+    t.string   "email",      limit: 255
     t.boolean  "estado"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "models", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "models", ["email"], name: "index_models_on_email", unique: true, using: :btree
   add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
 
   create_table "mov_cajas", force: :cascade do |t|
-    t.integer  "caja_id"
-    t.string   "concepto"
-    t.integer  "ingreso"
-    t.integer  "egreso"
-    t.integer  "saldo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "caja_id",    limit: 4
+    t.string   "concepto",   limit: 255
+    t.integer  "ingreso",    limit: 4
+    t.integer  "egreso",     limit: 4
+    t.integer  "saldo",      limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "movimientos", force: :cascade do |t|
-    t.string   "contrato_id"
-    t.integer  "cuota"
+    t.string   "contrato_id", limit: 255
+    t.integer  "cuota",       limit: 4
     t.date     "vencimiento"
-    t.integer  "monto"
+    t.integer  "monto",       limit: 4
     t.boolean  "estado"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "recibos", force: :cascade do |t|
-    t.integer  "contrato_id"
+    t.integer  "contrato_id", limit: 4
     t.date     "fecha"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
+  add_index "recibos", ["contrato_id"], name: "recibos_contrato_id_fk", using: :btree
+
   create_table "usuarios", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
