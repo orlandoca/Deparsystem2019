@@ -10,4 +10,5 @@ por un administrador. El sistema propuesto constituye un gran aporte a la comuni
 2.  Metodologia Kanban:Trello  
 3.  Sistema de Gestor de BD: Mysql Workbrench
 4.  Base de Datos: MySql
+5.  Entorno de Desarrollo: RubyMine
 
